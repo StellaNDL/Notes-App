@@ -4,7 +4,8 @@ export default function Notes() {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
 
-  const API_URL = "http://localhost:5000/api/notes";
+  const API_URL = "https://notes-app-4vcj.onrender.com/api/notes";
+
 
   // Replace with your current logged-in user's ID from frontend
   const userId = localStorage.getItem("user_id"); // assuming you saved it after login
