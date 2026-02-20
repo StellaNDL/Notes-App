@@ -8,7 +8,6 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_KEY
 );
 
-// ✅ GET all notes
 export const getNotes = async (req, res) => {
   try {
     const { data, error } = await supabase.from("notes").select("*");
@@ -21,7 +20,6 @@ export const getNotes = async (req, res) => {
   }
 };
 
-// ✅ ADD note
 export const addNote = async (req, res) => {
   try {
     const { content, user_id } = req.body;
@@ -39,7 +37,6 @@ export const addNote = async (req, res) => {
   }
 };
 
-// ✅ UPDATE note
 export const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
@@ -59,7 +56,6 @@ export const updateNote = async (req, res) => {
   }
 };
 
-// ✅ DELETE note
 export const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;

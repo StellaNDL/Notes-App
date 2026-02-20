@@ -7,16 +7,14 @@ export default function Notes() {
   const API_URL = "https://notes-app-4vcj.onrender.com/api/notes";
 
 
-  // Replace with your current logged-in user's ID from frontend
-  const userId = localStorage.getItem("user_id"); // assuming you saved it after login
+  const userId = localStorage.getItem("user_id"); 
 
-  // Fetch notes from backend
   const fetchNotes = async () => {
     try {
       const res = await fetch(API_URL);
       const data = await res.json();
 
-      // Filter notes for current user only
+      
       const userNotes = data.filter((note) => note.user_id === userId);
       setNotes(userNotes);
     } catch (err) {
@@ -28,7 +26,6 @@ export default function Notes() {
     fetchNotes();
   }, []);
 
-  // Add note
   const addNote = async () => {
     if (!newNote) return;
 
@@ -47,7 +44,6 @@ export default function Notes() {
     }
   };
 
-  // Update note
   const updateNote = async (id) => {
     const updatedContent = prompt("Edit your note:");
     if (!updatedContent) return;
@@ -66,7 +62,6 @@ export default function Notes() {
     }
   };
 
-  // Delete note
   const deleteNote = async (id) => {
     try {
       await fetch(`${API_URL}/${id}`, { method: "DELETE" });

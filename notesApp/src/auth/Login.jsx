@@ -30,7 +30,7 @@ const handleSubmit = async (e) => {
   if (error) {
     alert(error.message);
   } else {
-    // Redirect the user to /notes
+  
     navigate("/notes");
   }
 };

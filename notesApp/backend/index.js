@@ -7,14 +7,12 @@ dotenv.config();
 
 const app = express();
 
-// middleware
 app.use(cors());
 app.use(express.json());
 
 // routes
 app.use("/api/notes", notesRoutes);
 
-// health check
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
